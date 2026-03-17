@@ -99,7 +99,9 @@ Temporary Items
 /data/*
 /demo_data/*
 /benchmark_data/*
-.claude
+.claude/*
+!.claude/hooks/
+!.claude/settings.json
 .openviking
 *.code-workspace
 
