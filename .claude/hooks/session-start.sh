@@ -8,7 +8,8 @@ if curl -sf http://localhost:1933/health > /dev/null 2>&1; then
 fi
 
 echo "Starting OpenViking server..."
-openviking-server >> /tmp/openviking-server.log 2>&1 &
+REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+python "$REPO_DIR/openviking_cli/server_bootstrap.py" >> /tmp/openviking-server.log 2>&1 &
 
 # Wait up to 10s for it to be ready
 for i in $(seq 1 10); do
